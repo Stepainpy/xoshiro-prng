@@ -14,9 +14,11 @@
 #define COMMA ,
 
 #define test_output(name, otype, seed, aseed, ajump, aljmp) do { \
+    XSRPRNG_U64_WARN_BEGIN                                       \
     const otype after_seed[] = aseed;                            \
     const otype after_jump[] = ajump;                            \
     const otype after_ljmp[] = aljmp;                            \
+    XSRPRNG_U64_WARN_END                                         \
     const int aseed_sz = sizeof after_seed / sizeof *after_seed; \
     const int ajump_sz = sizeof after_jump / sizeof *after_jump; \
     const int aljmp_sz = sizeof after_ljmp / sizeof *after_ljmp; \

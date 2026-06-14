@@ -37,12 +37,14 @@ static xsrprng_u32_t XSRPRNG_USE_SPLITMIX32(xsrprng_u32_t* x) {
 #endif
 
 #ifdef XSRPRNG_USE_SPLITMIX64
+XSRPRNG_U64_WARN_BEGIN
 static xsrprng_u64_t XSRPRNG_USE_SPLITMIX64(xsrprng_u64_t* x) {
     xsrprng_u64_t z = (*x += 0x9e3779b97f4a7c15);
     z = (z ^ (z >> 30)) * 0xbf58476d1ce4e5b9;
     z = (z ^ (z >> 27)) * 0x94d049bb133111eb;
     return z ^ (z >> 31);
 }
+XSRPRNG_U64_WARN_END
 #endif
 
 #endif /* XOSHIRO_PSEUDORANDOM_NUMBER_GENERATOR_UTILS_H */
